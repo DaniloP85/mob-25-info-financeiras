@@ -2,7 +2,7 @@ syntax="proto3";
 
 service Gerenciar{
     rpc get(Empty) returns (ListarInfoFinanceiras){}
-    rpc getById(InfoFinanceirasPorId) returns(InfoFinanceiras){}
+    rpc getById(InfoFinanceirasPorId) returns(ListarInfoFinanceiras){}
     rpc insert(InfoFinanceiras) returns(InfoFinanceiras){}
     rpc update(InfoFinanceiras) returns(InfoFinanceiras){}
     rpc delete(InfoFinanceirasPorId) returns(Empty){}
@@ -23,5 +23,5 @@ message ListarInfoFinanceiras{
 }
 
 message InfoFinanceirasPorId{
-    string id=1;
+    string id_cliente=1;
 }

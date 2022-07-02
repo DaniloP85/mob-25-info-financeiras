@@ -26,11 +26,20 @@ server.addService(Proto.Gerenciar.service, {
       }
 
       callback(null, {InfoFinanceiras});
-      
+
     });
   },
   getById: (call, callback) => {
-    //TODO: implement getById implement
+    financeiraModel.find({ id_cliente: call.request.id_cliente }, (erro, InfoFinanceiras) => {
+      if (erro){
+        callback({
+          code: grpc.status.INVALID_ARGUMENT,
+          details: "parameters invalid",
+        });
+      }
+      
+      callback(null, {InfoFinanceiras});
+    });
   },
   insert: (call, callback) => {
     let info = {
