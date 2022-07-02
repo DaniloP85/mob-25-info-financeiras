@@ -28,12 +28,19 @@ server.addService(Proto.Gerenciar.service, {
       tipo_conta: call.request.tipo_conta,
       nome_titular: call.request.nome_titular,
       limite_cartao: call.request.limite_cartao,
-      _id :uuidv4()
+      _id: uuidv4(),
+      id_cliente: call.request.id_cliente,
     };
 
-    let ok = new financeiraModel(info).save();
-
-    callback(null, info);
+    if (call.request.id_cliente != undefined) {
+      new financeiraModel(info).save();
+      callback(null, info);
+    } else {
+      callback({
+        code: grpc.status.INVALID_ARGUMENT,
+        details: "id_cliente nao informado",
+      });
+    }
   },
   update: (call, callback) => {
     //TODO: implement update implement
