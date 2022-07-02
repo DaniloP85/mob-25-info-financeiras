@@ -7,6 +7,6 @@ let financeira = new Schema({
   nome_titular: { type: String },
   limite_cartao: { type: String },
   id_cliente: { type: String },
-}, {strict: true, _id: false, ersionKey: false });
+}, {strict: true, _id: false, versionKey: false });
 
 module.exports = Mongoose.model('financeira', financeira);
