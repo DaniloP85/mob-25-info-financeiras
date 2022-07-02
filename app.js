@@ -43,7 +43,6 @@ server.addService(Proto.Gerenciar.service, {
   },
   insert: (call, callback) => {
     let info = {
-      _id: uuidv4(),
       nome_banco: call.request.nome_banco,
       tipo_conta: call.request.tipo_conta,
       nome_titular: call.request.nome_titular,
@@ -52,8 +51,15 @@ server.addService(Proto.Gerenciar.service, {
     };
 
     if (call.request.id_cliente != undefined) {
-      new financeiraModel(info).save();
-      callback(null, info);
+      new financeiraModel(info).save(function(err, InfoFinanceiras) {
+        if (err) {
+          callback({
+            code: grpc.status.INVALID_ARGUMENT,
+            details: "id_cliente nao informado",
+          });          
+        }
+        callback(null, InfoFinanceiras);
+      });
     } else {
       callback({
         code: grpc.status.INVALID_ARGUMENT,
