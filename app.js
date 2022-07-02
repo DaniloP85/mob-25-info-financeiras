@@ -17,18 +17,28 @@ const server = new grpc.Server();
 
 server.addService(Proto.Gerenciar.service, {
   get: (_, callback) => {
-    // TODO: implement get method
+    financeiraModel.find((erro, InfoFinanceiras) => {
+      if (erro){
+        callback({
+          code: grpc.status.INVALID_ARGUMENT,
+          details: "parameters invalid",
+        });
+      }
+
+      callback(null, {InfoFinanceiras});
+      
+    });
   },
   getById: (call, callback) => {
     //TODO: implement getById implement
   },
   insert: (call, callback) => {
     let info = {
+      _id: uuidv4(),
       nome_banco: call.request.nome_banco,
       tipo_conta: call.request.tipo_conta,
       nome_titular: call.request.nome_titular,
       limite_cartao: call.request.limite_cartao,
-      _id: uuidv4(),
       id_cliente: call.request.id_cliente,
     };
 

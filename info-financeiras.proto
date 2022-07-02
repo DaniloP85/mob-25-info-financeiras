@@ -10,11 +10,11 @@ service Gerenciar{
 message Empty{}
 
 message InfoFinanceiras{
-    string nome_banco = 1;
-    string tipo_conta = 2;
-    string nome_titular = 3;
-    string limite_cartao = 4;
-    string _id = 5;
+    string _id = 1;
+    string nome_banco = 2;
+    string tipo_conta = 3;
+    string nome_titular = 4;
+    string limite_cartao = 5;
     string id_cliente = 6;
 }
 
