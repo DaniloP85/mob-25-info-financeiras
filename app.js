@@ -68,7 +68,16 @@ server.addService(Proto.Gerenciar.service, {
     }
   },
   update: (call, callback) => {
-    //TODO: implement update implement
+    financeiraModel.findByIdAndUpdate( call.request._id, call.request, { new: true }, (erro, InfoFinanceiras) => {
+      if (erro){
+        callback({
+          code: grpc.status.INVALID_ARGUMENT,
+          details: "nao foi possivel atualizar",
+        });
+      }
+      
+      callback(null, InfoFinanceiras);
+    });
   },
   delete: (call, callback) => {
     //TODO: implement delete implement
