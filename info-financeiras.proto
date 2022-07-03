@@ -2,7 +2,7 @@ syntax="proto3";
 
 service Gerenciar{
     rpc get(Empty) returns (ListarInfoFinanceiras){}
-    rpc getById(InfoFinanceirasPorId) returns(ListarInfoFinanceiras){}
+    rpc getByIdCliente(InfoFinanceirasPorId) returns(ListarInfoFinanceiras){}
     rpc insert(InfoFinanceiras) returns(InfoFinanceiras){}
     rpc update(InfoFinanceiras) returns(InfoFinanceiras){}
     rpc delete(InfoFinanceirasPor_Id) returns(Empty){}

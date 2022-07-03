@@ -28,7 +28,7 @@ server.addService(Proto.Gerenciar.service, {
 
     });
   },
-  getById: (call, callback) => {
+  getByIdCliente: (call, callback) => {
     FinanceiraModel.find({ id_cliente: call.request.id_cliente }, (erro, InfoFinanceiras) => {
       if (erro){
         callback({
