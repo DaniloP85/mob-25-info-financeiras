@@ -3,7 +3,6 @@ const grpc = require("grpc");
 const carregarProto = require("@grpc/proto-loader");
 global.Mongoose = require("mongoose");
 Mongoose.connect("mongodb://localhost:27017/local");
-const { v4: uuidv4 } = require("uuid");
 const financeiraModel = require("./models/financeira");
 const definicao = carregarProto.loadSync(PROTO_PATH, {
   keepCase: true,
