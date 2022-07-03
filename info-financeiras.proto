@@ -5,7 +5,7 @@ service Gerenciar{
     rpc getById(InfoFinanceirasPorId) returns(ListarInfoFinanceiras){}
     rpc insert(InfoFinanceiras) returns(InfoFinanceiras){}
     rpc update(InfoFinanceiras) returns(InfoFinanceiras){}
-    rpc delete(InfoFinanceirasPorId) returns(Empty){}
+    rpc delete(InfoFinanceirasPor_Id) returns(Empty){}
 }
 message Empty{}
 
@@ -24,4 +24,8 @@ message ListarInfoFinanceiras{
 
 message InfoFinanceirasPorId{
     string id_cliente=1;
+}
+
+message InfoFinanceirasPor_Id{
+    string _id=1;
 }
