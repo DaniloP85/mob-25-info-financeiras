@@ -3,7 +3,7 @@ const grpc = require("grpc");
 const carregarProto = require("@grpc/proto-loader");
 global.Mongoose = require("mongoose");
 Mongoose.connect("mongodb://localhost:27017/local");
-const financeiraModel = require("./models/financeira");
+const FinanceiraModel = require("./models/financeira");
 const definicao = carregarProto.loadSync(PROTO_PATH, {
   keepCase: true,
   longs: String,
@@ -16,7 +16,7 @@ const server = new grpc.Server();
 
 server.addService(Proto.Gerenciar.service, {
   get: (_, callback) => {
-    financeiraModel.find((erro, InfoFinanceiras) => {
+    FinanceiraModel.find((erro, InfoFinanceiras) => {
       if (erro){
         callback({
           code: grpc.status.INVALID_ARGUMENT,
@@ -29,7 +29,7 @@ server.addService(Proto.Gerenciar.service, {
     });
   },
   getById: (call, callback) => {
-    financeiraModel.find({ id_cliente: call.request.id_cliente }, (erro, InfoFinanceiras) => {
+    FinanceiraModel.find({ id_cliente: call.request.id_cliente }, (erro, InfoFinanceiras) => {
       if (erro){
         callback({
           code: grpc.status.INVALID_ARGUMENT,
@@ -50,7 +50,7 @@ server.addService(Proto.Gerenciar.service, {
     };
 
     if (call.request.id_cliente != undefined) {
-      new financeiraModel(info).save(function(err, InfoFinanceiras) {
+      new FinanceiraModel(info).save(function(err, InfoFinanceiras) {
         if (err) {
           callback({
             code: grpc.status.INVALID_ARGUMENT,
@@ -67,7 +67,7 @@ server.addService(Proto.Gerenciar.service, {
     }
   },
   update: (call, callback) => {
-    financeiraModel.findByIdAndUpdate(call.request._id, call.request, { new: true }, (erro, InfoFinanceiras) => {
+    FinanceiraModel.findByIdAndUpdate(call.request._id, call.request, { new: true }, (erro, InfoFinanceiras) => {
       if (erro){
         callback({
           code: grpc.status.INVALID_ARGUMENT,
@@ -79,7 +79,7 @@ server.addService(Proto.Gerenciar.service, {
     });
   },
   delete: (call, callback) => {
-    financeiraModel.findByIdAndDelete(call.request._id, (erro, InfoFinanceiras) => {
+    FinanceiraModel.findByIdAndDelete(call.request._id, (erro, InfoFinanceiras) => {
       if (erro){
         callback({
           code: grpc.status.INVALID_ARGUMENT,
