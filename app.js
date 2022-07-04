@@ -1,6 +1,7 @@
 const PROTO_PATH = "./info-financeiras.proto";
 const grpc = require("grpc");
 const carregarProto = require("@grpc/proto-loader");
+var grpcLogger = require('grpc-logger')
 global.Mongoose = require("mongoose");
 Mongoose.connect("mongodb://localhost:27017/local");
 const FinanceiraModel = require("./models/financeira");
@@ -41,6 +42,7 @@ server.addService(Proto.Gerenciar.service, {
     });
   },
   insert: (call, callback) => {
+    console.log(call.request);
     let info = {
       nome_banco: call.request.nome_banco,
       tipo_conta: call.request.tipo_conta,
@@ -95,3 +97,4 @@ server.addService(Proto.Gerenciar.service, {
 server.bind("127.0.0.1:30043", grpc.ServerCredentials.createInsecure());
 console.log("Server running at http://127.0.0.1:30043");
 server.start();
+grpcLogger(server);
