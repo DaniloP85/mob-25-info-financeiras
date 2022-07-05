@@ -7,7 +7,7 @@ Microservice using gRPC with Node.js
 Apply the concepts demonstrating in class, in the FIAP mobile development course
 
 ## Getting Started
-install the [Node.js](https://nodejs.org/en/) e o [MongoDB](https://www.mongodb.com/pt-br)
+install [Node.js](https://nodejs.org/en/), [MongoDB](https://www.mongodb.com/pt-br)
 
 ### Dependencies
 
@@ -31,6 +31,10 @@ npm install --verbose
 ```
 npm start
 ```
+
+after that, it will be necessary to have some tool that makes requests via gRPC.
+
+For testing purposes I used [Insonmia](https://github.com/DaniloP85/mob-25-fiap), but you can use whatever you think is best.
 
 ## Authors
 
