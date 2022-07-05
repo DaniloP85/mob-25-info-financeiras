@@ -41,10 +41,12 @@ For testing purposes I used [Insonmia](https://github.com/DaniloP85/mob-25-fiap)
 Danilo Santos
 [@danilopsnts](https://www.linkedin.com/in/danilopsnts/)
 
+## Contributing
 
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 ## License
 
-This project is licensed under the MT License - see the LICENSE.md file for details
+This project is licensed under the MT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
