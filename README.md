@@ -18,7 +18,7 @@ install the [Node.js](https://nodejs.org/en/) e o [MongoDB](https://www.mongodb.
 
 * clone this repository
 ```
-git clone 
+git clone git@github.com:DaniloP85/mob-25-info-financeiras.git
 ```
 * Install all dependencies
 ```

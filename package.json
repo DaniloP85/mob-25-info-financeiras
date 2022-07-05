@@ -1,15 +1,19 @@
 {
   "name": "mob-25-info-financeiras",
   "version": "1.0.0",
-  "description": "",
+  "description": "Microservice using gRPC with Node.js",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "js",
+    "gRPC",
+    "RPC",
+    "nodejs"
+  ],
+  "author": "Danilo Santos <danilopsnts@gmaill.com> (https://www.linkedin.com/in/danilopsnts)",
+  "license": "MIT",
   "dependencies": {
     "@grpc/proto-loader": "^0.6.12",
     "bluebird": "^3.7.2",
