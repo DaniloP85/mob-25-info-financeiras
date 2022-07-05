@@ -32,7 +32,7 @@ npm install --verbose
 npm start
 ```
 
-after that, it will be necessary to have some tool that makes requests via gRPC.
+after that, it will be necessary to have some tool that makes requests gRPC.
 
 For testing purposes I used [Insonmia](https://github.com/DaniloP85/mob-25-fiap), but you can use whatever you think is best.
 
