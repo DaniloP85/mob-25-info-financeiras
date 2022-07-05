@@ -44,5 +44,4 @@ This project is licensed under the MT License - see the LICENSE.md file for deta
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
 * [edilsonsilva](https://github.com/edilsonsilva/exemplogrpc)
